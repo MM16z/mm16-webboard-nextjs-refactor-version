@@ -1,4 +1,4 @@
-import { AuthFormType } from '@/app/models/loginModel'
+import { AuthFormType } from '@/models/loginModel'
 import React from 'react'
 
 export default function AuthForm({ onFormSubmit, pageType }: AuthFormType) {

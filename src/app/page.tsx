@@ -1,5 +1,5 @@
-import { homepageApiService } from "./api/homepageService";
-import MasonryComponent from "./components/masonry/Masonry";
+import { homepageApiService } from "../api/homepageService";
+import MasonryComponent from "../components/masonry/Masonry";
 import { silkscreen } from "./fonts";
 
 export default async function Home() {

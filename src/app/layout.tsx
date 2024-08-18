@@ -8,7 +8,7 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 import Router from "next/router";
-import Navbar from "@/app/components/navbar/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 

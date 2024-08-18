@@ -9,10 +9,10 @@ import { useFormState } from 'react-dom'
 import { silkscreen } from '@/app/fonts'
 
 // components
-import AuthForm from '@/app/components/auth/AuthForm'
+import AuthForm from '@/components/auth/AuthForm'
 
 // actions
-import { registerAction } from '@/app/actions/register/registerAction'
+import { registerAction } from '@/actions/register/registerAction'
 
 // utils
 import swal from "sweetalert2";

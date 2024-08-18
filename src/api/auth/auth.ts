@@ -1,4 +1,4 @@
-import { LoginModelType, RegisterModelType } from "@/app/models/loginModel";
+import { LoginModelType, RegisterModelType } from "@/models/loginModel";
 import apiService from "../axios/apiIntereptors";
 
 

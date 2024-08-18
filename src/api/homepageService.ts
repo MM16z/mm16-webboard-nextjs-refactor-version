@@ -1,4 +1,4 @@
-import { AllPostsParams, CurrentUserPostsParams } from "@/app/models/homepageModel";
+import { AllPostsParams, CurrentUserPostsParams } from "@/models/homepageModel";
 import apiService from "./axios/apiIntereptors";
 
 const HOMEPAGE_BASE_URL = process.env.NEXT_PUBLIC_API_URL + '/user_posts';

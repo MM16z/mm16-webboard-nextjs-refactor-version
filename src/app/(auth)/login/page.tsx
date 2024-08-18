@@ -6,9 +6,9 @@ import React, { useEffect } from 'react'
 import { useFormState } from 'react-dom'
 import { useRouter } from 'next/navigation'
 // components
-import AuthForm from '@/app/components/auth/AuthForm'
+import AuthForm from '@/components/auth/AuthForm'
 // actions
-import { loginAction } from '@/app/actions/login/loginAction'
+import { loginAction } from '@/actions/login/loginAction'
 // fonts
 import { silkscreen } from '@/app/fonts'
 // utils
