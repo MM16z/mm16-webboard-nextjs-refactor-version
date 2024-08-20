@@ -4,13 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-local": "next dev -p 3016",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "@types/js-cookie": "^3.0.6",
     "axios": "^1.7.4",
+    "dayjs": "^1.11.12",
+    "js-cookie": "^3.0.5",
     "next": "14.2.5",
     "nprogress": "^0.2.0",
     "react": "^18",

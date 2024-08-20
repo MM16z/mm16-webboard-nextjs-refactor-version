@@ -5,7 +5,6 @@ import { cookies } from "next/headers"
 import { authApiService } from "../../api/auth/auth"
 
 export const loginAction = async (prevState: any, formData: FormData) => {
-    "use server"
     const cookieStore = cookies()
     const getFormData = {
         email: formData.get('email')?.toString() || "",
@@ -19,12 +18,14 @@ export const loginAction = async (prevState: any, formData: FormData) => {
             return {
                 error: false,
                 message: "login success",
-                isSubmitted: true
+                isSubmitted: true,
+                response: response.data
             }
         }
     } catch (error: any) {
         if (error.response) {
             console.log(error)
+            cookieStore.set('token', '', { secure: true })
             return {
                 error: true,
                 code: error.response.status,

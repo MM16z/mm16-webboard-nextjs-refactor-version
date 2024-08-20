@@ -1,5 +1,5 @@
 'use client'
-import '@/app/styles/login/login.css'
+import '@/styles/login/login.css'
 
 // react, nextjs
 import React, { useEffect } from 'react'
@@ -13,13 +13,30 @@ import { loginAction } from '@/actions/login/loginAction'
 import { silkscreen } from '@/app/fonts'
 // utils
 import swal from "sweetalert2";
+import { useAppDispatch } from '@/redux/hook'
+import { updateUser } from "@/redux/slices/userSlice/userSlice"
+import getUserAuth from '@/api/auth/getUserAuth'
 
 
 function LoginPage() {
-    const initialState = { isSubmitted: false, error: false, message: '' }
+    const initialState = { isSubmitted: false, error: false, message: '', response: null }
     const [serverState, formActions] = useFormState(loginAction, initialState)
 
     const router = useRouter()
+
+    const dispatch = useAppDispatch()
+
+    const getCurrentUserData = async () => {
+        try {
+            const user = await getUserAuth()
+            if (user) {
+                dispatch(updateUser(user.data.decoded))
+            }
+            return
+        } catch (error) {
+            throw new Error(`Failed to get user auth: ${error}`)
+        }
+    }
 
     useEffect(() => {
         if (serverState?.isSubmitted) {
@@ -34,8 +51,9 @@ function LoginPage() {
                 swal.fire({
                     icon: 'success',
                     title: 'xdding?',
-                    text: `Login success!`,
+                    html: `Login success! <a href='http://imm0rz16.thddns.net:8771' target='_blank' style='text-decoration: underline; font-weight: bold;'>http://imm0rz16.thddns.net:8771</a>`,
                 })
+                getCurrentUserData()
                 router.push('/')
                 return
             }

@@ -1,11 +1,15 @@
-import React from 'react'
-import '@/app/styles/navbar/navbar.css'
+"use client"
+// import React from 'react'
+import '@/styles/navbar/navbar.css'
 
 import { silkscreen } from '@/app/fonts'
 import { useRouter } from 'next/navigation'
+import { useAppSelector } from '@/redux/hook'
 
 export default function Navbar() {
     const router = useRouter()
+    const getUserData = useAppSelector((state) => state.userSlice.currentuser)
+
     return (
         <nav
             className={`nav-container ${silkscreen.className} h-[66px] flex flex-row justify-between items-center`}>
@@ -17,7 +21,7 @@ export default function Navbar() {
             {/* nav-item2 */}
             <div>
                 <div className='current-user text-[20px] tracking-[-4px] text-center'>
-                    /Home, Howdy! :D @User : {null ? null : "Anonymous"}
+                    /Home, Howdy! :D @User : {getUserData.username ? getUserData.username : "Anonymous"}
                 </div>
             </div>
             {/* nav-item3 */}

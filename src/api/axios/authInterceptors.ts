@@ -9,7 +9,7 @@ const refreshToken = refreshTokenAuth();
 authAxios.interceptors.response.use(
     response => response,
     async (error) => {
-        if (error.response.status === 403) {
+        if (error.response.status === 401) {
             if (!refreshTokenPromise) {
                 refreshTokenPromise = refreshToken().then(
                     (newAccessToken: string) => {

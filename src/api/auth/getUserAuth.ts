@@ -1,9 +1,11 @@
 import { authAxios } from "../axios/authInterceptors";
-import { cookies } from 'next/headers'
+// import { cookies } from 'next/headers'
+import Cookies from 'js-cookie'
 
 const getUserAuth = async () => {
-    const cookieStore = cookies()
-    const jwtToken = cookieStore.get('token')
+    // const cookieStore = cookies()
+    // const jwtToken = cookieStore.get('token')?.value
+    const jwtToken = Cookies.get("token")
 
     try {
         const response = await authAxios.post(
@@ -20,8 +22,6 @@ const getUserAuth = async () => {
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Failed to get user auth: ${error.message}`);
-        } else {
-            throw new Error(`Failed to get user auth: ${String(error)}`);
         }
     }
 };

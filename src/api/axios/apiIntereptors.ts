@@ -1,5 +1,6 @@
 import axios from "axios";
-import { cookies } from 'next/headers'
+// import { cookies } from 'next/headers'
+import Cookies from 'js-cookie'
 
 export const apiAxios = axios.create(
     {
@@ -13,7 +14,7 @@ apiAxios.interceptors.response.use(
         console.log("API INTERCEPT ERR", error)
 
         if (error.response?.status === 401) {
-            cookies().set('token', '', { secure: true })
+            Cookies.set('token', '', { secure: true })
             return Promise.reject(error);
         }
         return Promise.reject(error);
@@ -21,7 +22,8 @@ apiAxios.interceptors.response.use(
 )
 
 const apiService = () => {
-    const token = cookies().get('token')
+    // const token = cookies().get('token')
+    const token = Cookies.get('token')
     if (!token) {
         delete apiAxios.defaults.headers.common['Authorization']
     } else {

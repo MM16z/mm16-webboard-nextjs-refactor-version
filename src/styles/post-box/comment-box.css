@@ -1,0 +1,65 @@
+.reply-box-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  left: 20px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  inline-size: 360px;
+}
+.reply-box-container > .comment-profile-circle-line {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(to right, white, white),
+    linear-gradient(135deg, rgba(255, 29, 0, 1) 0%, rgba(76, 0, 255, 1) 100%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  overflow: hidden;
+  font-size: 0;
+}
+.reply-box-container
+  > .comment-profile-circle-line
+  > .comment-profile-circle-img {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: url('../../assets/bussiness-man.png');
+  scale: 1.2;
+  background-size: contain;
+}
+.reply-box-container > .comment-username {
+  position: absolute;
+  top: 22px;
+  left: 40px;
+  /* font-family: 'Silkscreen', cursive; */
+  font-size: 15px;
+  inline-size: 320px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.reply-box-container > .comment-post-content {
+  display: inline-block;
+  position: relative;
+  /* font-family: 'Varela Round', sans-serif; */
+  font-size: 10.6px;
+  left: 0px;
+  margin-top: 62.5px;
+  margin-bottom: 15px;
+  inline-size: 360px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.reply-box-container > hr {
+  position: relative;
+  width: 100%;
+}
+.reply-box-container > .comment-delete:hover {
+  background-color: pink;
+}

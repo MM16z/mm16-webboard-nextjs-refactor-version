@@ -1,5 +1,6 @@
 import axios from "axios";
-import { cookies } from 'next/headers'
+// import { cookies } from 'next/headers'
+import Cookies from 'js-cookie'
 
 export const refreshAxios = axios.create();
 
@@ -17,7 +18,8 @@ const refreshTokenAuth = () => {
         });
 
         refreshAxios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
-        cookies().set('token', response.data.accessToken, { secure: true })
+        // cookies().set('token', response.data.accessToken, { secure: true })
+        Cookies.set('token', response.data.accessToken, { secure: true })
         return response.data.accessToken;
     }
     return refreshToken;

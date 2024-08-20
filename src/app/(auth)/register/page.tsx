@@ -1,5 +1,5 @@
 'use client'
-import '@/app/styles/login/login.css'
+import '@/styles/login/login.css'
 
 // react
 import React, { useEffect } from 'react'

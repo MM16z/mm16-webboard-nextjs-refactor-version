@@ -10,7 +10,11 @@ const breakpointColumnsObj = {
     1100: 1,
 };
 
-export default function MasonryComponent() {
+interface MasonryComponentProps {
+    children: React.ReactNode;
+}
+
+export default function MasonryComponent({ children }: MasonryComponentProps) {
     return (
         <Masonry
             breakpointCols={breakpointColumnsObj}
@@ -18,6 +22,7 @@ export default function MasonryComponent() {
             columnClassName="my-masonry-grid_column"
             style={{ marginTop: "20px" }}
         >
+            {children}
         </Masonry>
     )
 }
