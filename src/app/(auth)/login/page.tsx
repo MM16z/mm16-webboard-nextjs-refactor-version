@@ -39,12 +39,12 @@ function LoginPage() {
                         userId: user.id
                     }))
                 }
+                router.push('/user-dashboard')
                 swal.fire({
                     icon: 'success',
                     title: 'xdding?',
                     html: `Login success!`,
                 })
-                return router.push('/')
             }
         } catch (error: any) {
             if (error.response) {

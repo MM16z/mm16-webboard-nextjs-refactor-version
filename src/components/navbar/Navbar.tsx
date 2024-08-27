@@ -2,7 +2,7 @@
 // import React from 'react'
 
 import { silkscreen } from '@/fonts/fonts'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { useAppDispatch, useAppSelector } from '@/redux/hook'
 import { useCallback, useEffect, useRef } from 'react'
 import { logOut } from '@/redux/slices/authSlice/authSlice'
@@ -16,6 +16,7 @@ export default function Navbar() {
     const getUserData = useAppSelector((state) => state.userSlice.currentUser)
     const hamButtonRef = useRef<SVGSVGElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname()
 
     const dispatch = useAppDispatch()
 
@@ -64,7 +65,14 @@ export default function Navbar() {
             </div>
             {/* nav-item3 */}
             <div className='mr-10 text-[20px] flex-row gap-x-2 cursor-pointer text-white hidden sm:flex'>
-                {getUserData.userId ? <div onClick={() => { router.push('/user-dashboard', { scroll: false }) }}>Dashboard</div> : null}
+                {getUserData.userId && pathname !== '/user-dashboard' ? <div onClick={() => {
+                    router.push('/user-dashboard', { scroll: false })
+                    router.refresh()
+                }}>Dashboard</div> : null}
+                {getUserData.userId && pathname === '/user-dashboard' ? <div onClick={() => {
+                    router.push('/', { scroll: false })
+                    router.refresh()
+                }}>HOMEPAGE</div> : null}
                 {getUserData.userId ? <div>|</div> : null}
                 {getUserData.userId ? null : <>
                     <div onClick={() => { router.push('/register', { scroll: false }) }}>Register</div>
