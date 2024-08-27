@@ -21,10 +21,8 @@ export default async function HomePage({
   const cookiesStore = cookies();
   const userId = cookiesStore.get('u_id')?.value;
 
-  console.log
-
   const page = Math.max(0, Number(searchParams?.page || 0) - 1);
-  const data = await homepageApiService.getAllPosts({ offset: page * 6 }, userId ? Number(userId) : null);
+  const data = await homepageApiService.getAllPosts({ offset: page * 6 }, userId);
 
   return (
     <main className={`${silkscreen.className} overflow-x-hidden`}>
@@ -62,6 +60,7 @@ export default async function HomePage({
                       postLikedCount={post.post_liked_count}
                       defaultChecked={post.isLiked}
                       postId={postId}
+                      disabled={false}
                     />
                     <CommentForm postId={postId} />
                     {post?.comments?.map((comment: any, index: any) => {

@@ -10,8 +10,14 @@ export const homepageApiService = {
     deleteComment
 };
 
-async function getAllPosts(params: AllPostsParams, userId: number | null) {
-    const response = await apiService().get(`${HOMEPAGE_BASE_URL}/${params.offset}`, { params: { currentUserId: userId } });
+async function getAllPosts(params: AllPostsParams, userId: string | undefined) {
+    const response = await apiService().get(`${HOMEPAGE_BASE_URL}/${params.offset}`,
+        {
+            params: {
+                userId,
+            }
+        }
+    );
     return response.data;
 }
 
@@ -22,7 +28,7 @@ async function updatePostLike(postId: number, actionType: "like" | "unlike") {
             "Content-Type": "application/json",
         },
     });
-    return response;
+    return response.data;
 }
 
 async function createComment(payload: { postId: number; commentContent: string }) {
