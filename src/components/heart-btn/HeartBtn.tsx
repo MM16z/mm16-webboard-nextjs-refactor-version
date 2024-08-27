@@ -2,38 +2,44 @@
 
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { homepageApiService } from "@/api/homepageService";
+import { useAppSelector } from "@/redux/hook";
 
 type HeartBtnPropsType = {
     postLikedCount: number;
-    onChange?: ChangeEventHandler;
     defaultChecked: boolean;
     disabled?: boolean;
-    postLikePayload: { post_id: number }
+    postId: number
 };
 
 const DEBOUNCE_DELAY = 1500;
 
 const HeartBtn = (props: HeartBtnPropsType) => {
-    const { post_id } = props.postLikePayload
+    const { postId } = props
+    const userId = useAppSelector(state => state.userSlice.currentUser.userId)
 
     const [postLikedCount, setPostLikedCount] = useState(0);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
     const onPostLikeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         props.defaultChecked = event.target.checked
         try {
             if (event.target.checked) {
-                setPostLikedCount(prev => prev + 1)
-                homepageApiService.updatePostLike({ postid: post_id, userid: 3 }, "like")
+                homepageApiService.updatePostLike(postId, "like").then(_ => {
+                    setPostLikedCount(prev => prev + 1)
+                }).catch(_ => {
+                    setPostLikedCount(prev => prev - 1)
+                })
             } else {
-                setPostLikedCount(prev => prev - 1)
-                homepageApiService.updatePostLike(post_id, "unlike")
+                homepageApiService.updatePostLike(postId, "unlike").then(_ => {
+                    setPostLikedCount(prev => prev - 1)
+                }).catch(_ => {
+                    setPostLikedCount(prev => prev + 1)
+                })
             }
-
             setIsButtonDisabled(true);
             setTimeout(() => {
                 setIsButtonDisabled(false);
             }, DEBOUNCE_DELAY);
-            console.log("POST ID", props.postLikePayload.post_id, "POST LIKE COUNT", props.postLikedCount);
         } catch (error) {
             console.log(error)
         }

@@ -1,48 +1,48 @@
 'use client'
-import '@/styles/login/login.css'
 
 // react
-import React, { useEffect } from 'react'
-import { useFormState } from 'react-dom'
+import React from 'react'
 
 // fonts
-import { silkscreen } from '@/app/fonts'
+import { silkscreen } from '@/fonts/fonts'
 
 // components
-import AuthForm from '@/components/auth/AuthForm'
+import AuthForm from '@/components/form/AuthForm'
 
 // actions
-import { registerAction } from '@/actions/register/registerAction'
 
 // utils
 import swal from "sweetalert2";
+import { AxiosResponse } from 'axios'
+import { authApiService } from '@/api/auth/auth'
 
 function RegisterPage() {
-    const initialState = { isSubmited: false, error: false, message: '', code: undefined, errorCode: undefined }
-    const [serverState, formActions] = useFormState(registerAction, initialState)
 
-    useEffect(() => {
-        if (serverState?.isSubmited) {
-            if (serverState?.errorCode) {
-                swal.fire({
+    const onSubmitHandler = async (value: any) => {
+        try {
+            const response: AxiosResponse = await authApiService.Register(value)
+            if (response.status === 201) {
+                return swal.fire({
+                    icon: 'success',
+                    title: 'xdding?',
+                    text: `Register success!`,
+                })
+            }
+        } catch (error: any) {
+            console.log("ERR", error)
+            if (error) {
+                return swal.fire({
                     icon: 'error',
                     title: 'xdding?',
-                    text: `${serverState.message}`,
+                    text: error.response.data.message,
                 })
-                return
             }
-            swal.fire({
-                icon: 'success',
-                title: 'xdding?',
-                text: `Register success!`,
-            })
-            return
         }
-    }, [serverState])
+    }
 
     return (
         <div className={`${silkscreen.className} flex flex-col w-full h-full justify-center justify-items-center p-8 gap-y-4`}>
-            <AuthForm pageType='register' onFormSubmit={formActions} />
+            <AuthForm pageType='register' onFormSubmit={onSubmitHandler} />
         </div>
     )
 }

@@ -1,8 +1,5 @@
-import "@/styles/post-box/post-box.css";
-import "@/styles/post-box/comment-box.css";
-
 import { PostBoxContainerType } from "@/models/components/post-boxType";
-import { verela } from "@/app/fonts";
+import { verela } from "@/fonts/fonts";
 
 function PostBoxContainer({ children, ...props }: PostBoxContainerType) {
     const { username, title, postcontent, postdate } = props;

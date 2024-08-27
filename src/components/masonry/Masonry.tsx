@@ -1,4 +1,7 @@
 'use client'
+import "@/styles/post-box/post-box.css";
+import "@/styles/post-box/comment-box.css";
+
 import React from 'react'
 
 import Masonry from "react-masonry-css";

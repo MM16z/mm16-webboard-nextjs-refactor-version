@@ -1,0 +1,56 @@
+#hambtn {
+  width: 80px !important;
+}
+
+.mobilemenu > p {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.ham {
+  z-index: 11;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 1500ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  right: 5px;
+  top: -6px;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.menu .top {
+  stroke-dasharray: 40 139;
+}
+
+.menu .bottom {
+  stroke-dasharray: 40 180;
+}
+
+.menu.active .top {
+  stroke-dashoffset: -98px;
+}
+
+.menu.active .bottom {
+  stroke-dashoffset: -138px;
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 1500ms, stroke-dashoffset 1500ms;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+@media screen and (min-width: 640px) {
+  .ham {
+    display: none;
+  }
+}

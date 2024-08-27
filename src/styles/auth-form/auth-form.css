@@ -1,4 +1,4 @@
-.login-input {
+.login-inputcontainer > input.inputborder {
   border: double 1vw transparent;
   border-radius: 5vw;
   background-image: linear-gradient(
@@ -16,17 +16,4 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
   outline: none;
-}
-
-.login-submit-btn {
-  color: green;
-  &:hover {
-    background-color: black;
-  }
-  border-radius: 8px;
-}
-
-.toregisref {
-  text-decoration: underline;
-  font-size: 18px;
 }

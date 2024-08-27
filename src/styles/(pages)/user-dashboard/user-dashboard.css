@@ -1,0 +1,482 @@
+.userpanel-container {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  padding-bottom: 25.5%;
+}
+
+.userpanel-container > form {
+  position: relative;
+  display: inline-block;
+  top: 200px;
+  left: 100px;
+  height: auto;
+}
+
+.userpanel-container > .user-posts {
+  position: absolute;
+  display: inline-block;
+  top: 100px;
+  right: 100px;
+}
+
+#username {
+  z-index: 3;
+  position: absolute;
+  font-size: 40px;
+  top: 100px;
+  left: 150px;
+}
+
+.user-panel-inputcontainer {
+  z-index: 2;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-panel-inputcontainer > label {
+  font-size: 25px;
+}
+
+.user-panel-inputcontainer > textarea.post-inputborder {
+  position: relative;
+  font-size: 20px;
+  line-height: 25px;
+  width: 400px;
+  height: 250px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  resize: none;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: double 12.5px transparent;
+  border-radius: 50px;
+  background-image: linear-gradient(
+      215deg,
+      rgb(255, 226, 221) 0%,
+      rgb(240, 221, 255) 50%,
+      rgb(202, 247, 255) 100%
+    ),
+    linear-gradient(
+      215deg,
+      rgba(255, 42, 0, 1) 0%,
+      rgba(158, 0, 255, 1) 50%,
+      rgba(0, 219, 255, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  outline: none;
+}
+
+.user-panel-inputcontainer > input#post-submitbtn {
+  position: relative;
+  cursor: pointer;
+  font-size: 42.5px;
+  color: black;
+  width: 250px;
+  height: 70px;
+  border: 1px solid black;
+}
+
+.user-panel-inputcontainer > input#post-submitbtn:hover {
+  background-color: whitesmoke;
+}
+
+#user-post-text {
+  z-index: 3;
+  position: relative;
+  font-size: 32.5px;
+  left: 85px;
+  top: -15px;
+}
+
+.user-posts-container {
+  z-index: 3;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  overflow-y: scroll;
+  border: 5px solid rgb(200, 0, 255);
+  width: 550px;
+  height: 600px;
+  padding-bottom: 10%;
+}
+
+.user-posts-container > * {
+  margin-top: 40px;
+}
+
+#post-edit-btn {
+  z-index: 3;
+  position: absolute;
+  cursor: pointer;
+  background-color: rgb(73, 255, 33);
+  width: 55px;
+  height: 25px;
+  font-size: 14px;
+  top: 12.5px;
+  right: 15px;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#post-edit-btn:hover {
+  background-color: rgb(169, 246, 53);
+}
+
+.usereditinput-container {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+#exit-edit {
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: bolder;
+  position: relative;
+  top: 3vw;
+  left: 80vw;
+  width: 3.5vw;
+  height: 2.5vw;
+  min-width: 40px;
+  min-height: 25px;
+  background-color: red;
+  cursor: pointer;
+  border-radius: 20%;
+}
+
+.user-edit-panel-inputcontainer {
+  z-index: 5;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  top: 30px !important;
+  left: 50% !important;
+  scale: inherit !important;
+  transform: translateX(-50%);
+}
+
+.user-edit-panel-inputcontainer > textarea.post-edit-inputborder {
+  position: relative;
+  font-size: 1.5vw;
+  line-height: 2vw;
+  width: 25vw;
+  height: 17.55vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  resize: none;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: double 12.5px transparent;
+  border-radius: 50px;
+  background-image: linear-gradient(
+      215deg,
+      rgb(255, 226, 221) 0%,
+      rgb(240, 221, 255) 50%,
+      rgb(202, 247, 255) 100%
+    ),
+    linear-gradient(
+      215deg,
+      rgba(255, 42, 0, 1) 0%,
+      rgba(158, 0, 255, 1) 50%,
+      rgba(0, 219, 255, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  outline: none;
+}
+
+.user-edit-panel-inputcontainer > input#post-edit-submitbtn {
+  position: relative;
+  cursor: pointer;
+  font-size: 3vw;
+  color: red;
+  width: 500px;
+  height: 100px;
+  transform: translate(0%, 0%);
+  border: 1px solid black;
+}
+
+.user-edit-panel-inputcontainer > input#post-edit-submitbtn:hover {
+  background-color: rgba(245, 245, 245, 0.839);
+}
+
+.user-edit-panel-inputcontainer > label {
+  font-size: 8vw;
+  background: linear-gradient(
+    124deg,
+    #ff2400,
+    #e81d1d,
+    #e8b71d,
+    #e3e81d,
+    #1de840,
+    #1ddde8,
+    #2b1de8,
+    #dd00f3,
+    #dd00f3
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#post-delete-btn {
+  position: absolute;
+  cursor: pointer;
+  background-color: rgb(255, 13, 13);
+  width: 55px;
+  height: 25px;
+  font-size: 11px;
+  left: 17.5px;
+  bottom: 12.5px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
+
+#post-delete-btn:hover {
+  background-color: rgb(255, 73, 49);
+}
+
+#post-delete-btn_null {
+  display: none;
+  pointer-events: none;
+}
+
+.blocks-wrapper-userpanel {
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .userpanel-container > form {
+    z-index: 1;
+    scale: 0.8;
+    top: 45px !important;
+  }
+  .userpanel-container > .user-posts {
+    z-index: 1;
+    scale: 0.7;
+    top: -45px !important;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 361px) {
+  .userpanel-container > form {
+    z-index: 1;
+    scale: 0.6;
+    top: 0px !important;
+  }
+  .userpanel-container > .user-posts {
+    z-index: 1;
+    scale: 0.5;
+    top: -200px !important;
+  }
+  .usereditinput-container > form > .user-edit-panel-inputcontainer {
+    top: 50px !important;
+  }
+  .user-edit-panel-inputcontainer > textarea.post-edit-inputborder {
+    border: double 9.5px transparent;
+    width: 120px;
+    height: 150px;
+    font-size: 10px;
+    line-height: 10px;
+  }
+  .user-edit-panel-inputcontainer > input#post-edit-submitbtn {
+    font-size: 3vw;
+    color: red;
+    width: 150px;
+    height: 50px;
+  }
+  .user-edit-panel-inputcontainer > label {
+    font-size: 8vw;
+  }
+  .user-posts-container > .post-box-container {
+    width: 300px;
+  }
+  .user-posts-container > .post-box-container > .post-date {
+    right: 10px;
+  }
+  .blocks-wrapper-userpanel {
+    top: 10% !important;
+  }
+}
+
+@media screen and (min-width: 362px) and (max-width: 395px) {
+  .userpanel-container > form {
+    z-index: 1;
+    scale: 0.65;
+    top: 10px !important;
+  }
+  .userpanel-container > .user-posts {
+    z-index: 1;
+    scale: 0.55;
+    top: -170px !important;
+  }
+  .usereditinput-container > form > .user-edit-panel-inputcontainer {
+    top: 50px !important;
+  }
+  .user-edit-panel-inputcontainer > textarea.post-edit-inputborder {
+    border: double 9.5px transparent;
+    width: 160px;
+    height: 150px;
+    font-size: 10px;
+    line-height: 10px;
+  }
+  .user-edit-panel-inputcontainer > input#post-edit-submitbtn {
+    font-size: 3vw;
+    color: red;
+    width: 150px;
+    height: 50px;
+  }
+  .user-edit-panel-inputcontainer > label {
+    font-size: 8vw;
+  }
+  .user-posts-container > .post-box-container {
+    width: 300px;
+  }
+  .user-posts-container > .post-box-container > .post-date {
+    right: 10px;
+  }
+  .blocks-wrapper-userpanel {
+    top: 10% !important;
+  }
+}
+
+@media screen and (min-width: 396px) and (max-width: 450px) {
+  .userpanel-container > form {
+    z-index: 1;
+    scale: 0.7;
+    top: 20px !important;
+  }
+  .userpanel-container > .user-posts {
+    z-index: 1;
+    scale: 0.6;
+    top: -120px !important;
+  }
+  .usereditinput-container > form > .user-edit-panel-inputcontainer {
+    top: 50px !important;
+  }
+  .user-edit-panel-inputcontainer > textarea.post-edit-inputborder {
+    border: double 9.5px transparent;
+    width: 200px;
+    height: 150px;
+    font-size: 12px;
+    line-height: 10px;
+  }
+  .user-edit-panel-inputcontainer > input#post-edit-submitbtn {
+    font-size: 3vw;
+    color: red;
+    width: 200px;
+    height: 50px;
+  }
+  .user-edit-panel-inputcontainer > label {
+    font-size: 8vw;
+  }
+  .user-posts-container > .post-box-container {
+    width: 300px;
+  }
+  .user-posts-container > .post-box-container > .post-date {
+    right: 10px;
+  }
+  .blocks-wrapper-userpanel {
+    top: 10% !important;
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 500px) {
+  .usereditinput-container > form > .user-edit-panel-inputcontainer {
+    top: 50px !important;
+  }
+  .user-edit-panel-inputcontainer > textarea.post-edit-inputborder {
+    border: double 9.5px transparent;
+    width: 225px;
+    height: 150px;
+    font-size: 12px;
+  }
+  .user-edit-panel-inputcontainer > input#post-edit-submitbtn {
+    font-size: 3vw;
+    color: red;
+    width: 200px;
+    height: 50px;
+  }
+  .user-edit-panel-inputcontainer > label {
+    font-size: 8vw;
+  }
+  .user-posts-container > .post-box-container {
+    width: 300px;
+  }
+  .user-posts-container > .post-box-container > .post-date {
+    right: 10px;
+  }
+  .blocks-wrapper-userpanel {
+    top: 10% !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .user-edit-panel-inputcontainer {
+    scale: 1.3 !important;
+    margin-left: 10vw;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #username {
+    position: relative;
+    top: 75px;
+    left: inherit;
+  }
+  .userpanel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .userpanel-container > form {
+    top: 100px;
+    left: inherit;
+  }
+  .userpanel-container .user-posts {
+    position: relative;
+    top: 160px;
+    right: inherit;
+  }
+}
+
+@media screen and (min-width: 1620px) {
+  .user-panel-inputcontainer {
+    scale: 1.3;
+    top: 100px;
+    left: 70px;
+  }
+  .userpanel-container {
+    padding-bottom: 27%;
+  }
+  .user-posts-container {
+    width: 650px;
+    height: 770px;
+  }
+  #user-post-text {
+    left: 140px;
+  }
+}

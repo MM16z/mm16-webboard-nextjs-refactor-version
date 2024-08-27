@@ -1,6 +1,6 @@
 export interface AuthFormType {
     // onFormSubmit: (formData: LoginModelType) => void
-    onFormSubmit: (formData: FormData) => void
+    onFormSubmit: (formData: { email: string, password: string, username: string }) => void
     pageType: "login" | "register"
 }
 

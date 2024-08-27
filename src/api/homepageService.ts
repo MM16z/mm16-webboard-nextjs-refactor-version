@@ -1,31 +1,46 @@
 import { AllPostsParams, CurrentUserPostsParams } from "@/models/homepageModel";
 import apiService from "./axios/apiIntereptors";
 
-const HOMEPAGE_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-const HOMEPAGE_DATA_BASE_URL = process.env.NEXT_PUBLIC_API_URL + '/user_posts';
+const HOMEPAGE_BASE_URL = process.env.NEXT_PUBLIC_API_URL + "/homepage";
 
 export const homepageApiService = {
     getAllPosts,
-    getCurrentUserPosts,
-    updatePostLike
+    updatePostLike,
+    createComment,
+    deleteComment
 };
 
-async function getAllPosts(params: AllPostsParams) {
-    const response = await apiService().get(`${HOMEPAGE_DATA_BASE_URL}/${params.offset}`,);
+async function getAllPosts(params: AllPostsParams, userId: number | null) {
+    const response = await apiService().get(`${HOMEPAGE_BASE_URL}/${params.offset}`, { params: { currentUserId: userId } });
     return response.data;
 }
 
-async function getCurrentUserPosts(query: CurrentUserPostsParams) {
-    const response = await apiService().get(`${HOMEPAGE_DATA_BASE_URL}`, { params: query });
-    return response.data;
+async function updatePostLike(postId: number, actionType: "like" | "unlike") {
+    const response = await apiService().post(`${HOMEPAGE_BASE_URL}/update_post_like`,
+        JSON.stringify({ postId, actionType }), {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    return response;
 }
 
-async function updatePostLike(payload: any, actionType: "like" | "unlike") {
-    const response = await apiService().post(`${HOMEPAGE_BASE_URL}/${actionType === "like" ? "user_post_liked" : "user_post_unliked"}`,
+async function createComment(payload: { postId: number; commentContent: string }) {
+    const response = await apiService().post(`${HOMEPAGE_BASE_URL}/create_comment`,
         JSON.stringify(payload), {
         headers: {
             "Content-Type": "application/json",
         },
     });
-    return response.data;
+    return response;
+}
+
+async function deleteComment(id: number) {
+    const response = await apiService().post(`${HOMEPAGE_BASE_URL}/delete_comment`,
+        JSON.stringify({ commentId: id }), {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    return response;
 }
