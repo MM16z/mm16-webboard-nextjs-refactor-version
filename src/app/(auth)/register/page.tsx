@@ -15,18 +15,21 @@ import AuthForm from '@/components/form/AuthForm'
 import swal from "sweetalert2";
 import { AxiosResponse } from 'axios'
 import { authApiService } from '@/api/auth/auth'
+import { useRouter } from 'next/navigation';
 
 function RegisterPage() {
-
+    const router = useRouter();
     const onSubmitHandler = async (value: any) => {
         try {
             const response: AxiosResponse = await authApiService.Register(value)
             if (response.status === 201) {
-                return swal.fire({
+
+                swal.fire({
                     icon: 'success',
                     title: 'xdding?',
                     text: `Register success!`,
                 })
+                return router.push('/login')
             }
         } catch (error: any) {
             console.log("ERR", error)
