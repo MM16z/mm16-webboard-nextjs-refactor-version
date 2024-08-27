@@ -53,7 +53,10 @@ export default function Navbar() {
             <MobileMenu hamButtonRef={hamButtonRef} mobileMenuRef={mobileMenuRef} />
             <HamButton onHamButtonClick={onHamButtonClick} hamButtonRef={hamButtonRef} />
             {/* nav-item1 */}
-            <div className='ml-10 z-10 cursor-pointer text-center' onClick={() => { router.push('/', { scroll: false }) }}>
+            <div className='ml-10 z-10 cursor-pointer text-center' onClick={() => {
+                router.push('/', { scroll: false })
+                router.refresh()
+            }}>
                 <div className='nav-logo text-[40px] tracking-[-5px] mt-[-10px]'>MM16STUDIO</div>
                 <div className='nav-logo-sub text-[20px] tracking-[-1px] text-white mt-[-15px]'>Webboard</div>
             </div>
