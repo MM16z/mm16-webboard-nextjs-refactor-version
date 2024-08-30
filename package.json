@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev-local": "next dev -p 3016",
-    "build": "next build --output public",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
