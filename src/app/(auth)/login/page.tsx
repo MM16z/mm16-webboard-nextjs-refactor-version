@@ -1,7 +1,7 @@
 'use client'
 
 // react, nextjs
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import AuthForm from '@/components/form/AuthForm'
@@ -58,6 +58,13 @@ function LoginPage() {
             }
         }
     }
+
+    useEffect(() => {
+        const token = Cookies.get('u_auth_status')
+        if (token === 'active') {
+            router.push('/user-dashboard')
+        }
+    }, [router])
 
     return (
         <div className={`login-page-container ${silkscreen.className} flex flex-col w-full h-full justify-center justify-items-center p-8 gap-y-4`}>

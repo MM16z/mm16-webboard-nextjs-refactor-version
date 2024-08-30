@@ -1,7 +1,7 @@
 'use client'
 
 // react
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // fonts
 import { silkscreen } from '@/fonts/fonts'
@@ -16,6 +16,7 @@ import swal from "sweetalert2";
 import { AxiosResponse } from 'axios'
 import { authApiService } from '@/api/auth/auth'
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 function RegisterPage() {
     const router = useRouter();
@@ -42,6 +43,13 @@ function RegisterPage() {
             }
         }
     }
+
+    useEffect(() => {
+        const token = Cookies.get('u_auth_status')
+        if (token === 'active') {
+            router.push('/user-dashboard')
+        }
+    }, [router])
 
     return (
         <div className={`${silkscreen.className} flex flex-col w-full h-full justify-center justify-items-center p-8 gap-y-4`}>
