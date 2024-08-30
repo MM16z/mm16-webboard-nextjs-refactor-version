@@ -5,6 +5,7 @@ const HOMEPAGE_BASE_URL = process.env.NEXT_PUBLIC_API_URL + "/homepage";
 
 export const homepageApiService = {
     getAllPosts,
+    getSystemInfo,
     updatePostLike,
     createComment,
     deleteComment
@@ -49,4 +50,9 @@ async function deleteComment(id: number) {
         },
     });
     return response;
+}
+
+async function getSystemInfo() {
+    const response = await apiService().get(`${process.env.NEXT_PUBLIC_API_URL}/system-info`);
+    return response.data;
 }

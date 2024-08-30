@@ -8,6 +8,7 @@ import HeartBtn from "@/components/heart-btn/HeartBtn";
 import CommentBoxContainer from "@/components/post-box/CommentBox";
 import { cookies } from "next/headers";
 import CommentForm from "@/components/(pages)/homepage/commentForm";
+import SystemInfo from "@/components/SystemInfo";
 
 export const fetchCache = 'force-no-store'
 
@@ -26,6 +27,7 @@ export default async function HomePage({
 
   return (
     <main className={`${silkscreen.className} overflow-x-hidden`}>
+      <SystemInfo />
       <div id="home-page-bg">
         <span id="home-page-bg-nested"></span>
       </div>
