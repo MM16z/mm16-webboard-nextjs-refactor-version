@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev-local": "next dev -p 3016",
-    "build": "next build",
+    "build": "[mm16-webboard] build --output public",
     "start": "next start",
     "lint": "next lint"
   },
