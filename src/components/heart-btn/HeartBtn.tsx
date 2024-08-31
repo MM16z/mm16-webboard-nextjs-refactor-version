@@ -57,13 +57,13 @@ const HeartBtn = (props: HeartBtnPropsType) => {
                 id="checkbox"
                 onChange={onPostLikeHandler}
                 defaultChecked={props.defaultChecked}
-                disabled={isButtonDisabled}
-                style={{ cursor: isButtonDisabled ? "none" : "pointer" }}
+                disabled={!userId}
+                style={{ cursor: !userId ? "help" : "pointer" }}
             />
             <label htmlFor="checkbox">
                 <noscript>By http://robeen.io</noscript>
                 <svg
-                    style={{ opacity: isButtonDisabled ? "0.5" : "1" }}
+                    style={{ opacity: !userId ? "0.5" : "1" }}
                     id="heart-svg"
                     viewBox="467 392 58 57"
                     xmlns="http://www.w3.org/2000/svg"

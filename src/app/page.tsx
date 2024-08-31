@@ -62,7 +62,6 @@ export default async function HomePage({
                       postLikedCount={post.post_liked_count}
                       defaultChecked={post.isLiked}
                       postId={postId}
-                      disabled={false}
                     />
                     <CommentForm postId={postId} />
                     {post?.comments?.map((comment: any, index: any) => {
