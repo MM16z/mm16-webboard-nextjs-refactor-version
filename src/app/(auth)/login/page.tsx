@@ -31,7 +31,6 @@ function LoginPage() {
                 const token = response.data.accessToken
                 Cookies.set('jwtToken', token, { secure: true })
                 Cookies.set('u_auth_status', 'active')
-                Cookies.set('u_id', response.data.id, { secure: true })
                 dispatch(updateAuth({ token: token }))
                 const user = await getUserInfo()
                 if (user) {
@@ -41,6 +40,7 @@ function LoginPage() {
                         userId: user.id
                     }))
                 }
+                Cookies.set('u_id', user.id, { secure: true })
                 router.push('/user-dashboard')
                 swal.fire({
                     icon: 'success',
