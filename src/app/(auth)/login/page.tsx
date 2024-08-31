@@ -30,6 +30,8 @@ function LoginPage() {
             if (response.status === 200) {
                 const token = response.data.accessToken
                 Cookies.set('jwtToken', token, { secure: true })
+                Cookies.set('u_auth_status', 'active')
+                Cookies.set('u_id', response.data.id, { secure: true })
                 dispatch(updateAuth({ token: token }))
                 const user = await getUserInfo()
                 if (user) {
@@ -50,6 +52,8 @@ function LoginPage() {
             if (error.response) {
                 console.log(error)
                 Cookies.set('jwtToken', '', { secure: true })
+                Cookies.set('u_auth_status', '')
+                Cookies.set('u_id', '', { secure: true })
                 return swal.fire({
                     icon: 'error',
                     title: 'xdding?',
