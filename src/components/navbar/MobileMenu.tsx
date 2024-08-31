@@ -73,6 +73,7 @@ const MobileMenu = ({ hamButtonRef, mobileMenuRef }: { hamButtonRef: React.RefOb
                 dispatch(logOut());
                 mobileMenuRef.current?.classList.toggle("active");
                 hamButtonRef.current?.classList.toggle("active");
+                Cookies.remove('jwtToken')
                 Cookies.set('u_auth_status', '')
                 Cookies.set('u_id', '', { secure: true })
                 window.location.href = "/";

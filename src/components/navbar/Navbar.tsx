@@ -26,6 +26,7 @@ export default function Navbar() {
             const response = await authApiService.Logout()
             if (response.status === 200) {
                 dispatch(logOut())
+                Cookies.remove('jwtToken')
                 Cookies.set('u_auth_status', '')
                 Cookies.set('u_id', '', { secure: true })
                 window.location.href = '/'
